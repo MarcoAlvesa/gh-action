@@ -5,7 +5,7 @@ const HELP_ITEMS = [
   {
     id: 'h1',
     title: 'What is Git?',
-    text: 'Git is a version control system, helping you to manage your code and create code snapshots."Trigging test.yml"',
+    text: 'Git is a version control system, helping you to manage your code and create code snapshots."Trigging test.yml again"',
   },
   {
     id: 'h2',
