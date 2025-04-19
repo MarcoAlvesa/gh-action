@@ -49,7 +49,7 @@ jobs:
         run: npm ci
       - name: Run deploy
         working-directory: ./practice-project
-        run: npm deploy
+        run: npm run deploy
       - name: Print message
         working-directory: ./practice-project
         run: echo 'Deploying project ...'
