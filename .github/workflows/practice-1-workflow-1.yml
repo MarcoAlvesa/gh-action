@@ -18,9 +18,8 @@ jobs:
         run: npm ci
       - name: Run lint
         working-directory: ./practice-project
-        run: npm lint
+        run: npm run lint
   test:
-    needs: lint
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -32,12 +31,11 @@ jobs:
       - name: Install dependencies
         working-directory: ./practice-project
         run: npm ci
-      - name: Run lint
+      - name: Run test
         working-directory: ./practice-project
-        run: npm lint
+        run: npm test
 
   deploy:
-    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: get Code
