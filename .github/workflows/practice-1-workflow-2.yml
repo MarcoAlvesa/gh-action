@@ -1,0 +1,11 @@
+name: Handle Issues
+on: issues
+jobs:
+ issue:
+  runs-on: ubuntu-latest
+  steps:
+   - name: get-issue
+     run: '${{ github.event }}'
+
+
+
