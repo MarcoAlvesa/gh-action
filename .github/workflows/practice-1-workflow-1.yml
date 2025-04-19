@@ -1,0 +1,57 @@
+name: Lint, test and deploy
+on:
+  push:
+    paths:
+        - 'practice-project/**'
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        working-directory: ./practice-project
+        run: npm ci
+      - name: Run lint
+        working-directory: ./practice-project
+        run: npm lint
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        working-directory: ./practice-project
+        run: npm ci
+      - name: Run lint
+        working-directory: ./practice-project
+        run: npm lint
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: get Code
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        working-directory: ./practice-project
+        run: npm ci
+      - name: Run deploy
+        working-directory: ./practice-project
+        run: npm deploy
+      - name: Print message
+        working-directory: ./practice-project
+        run: echo 'Deploying project ...'
